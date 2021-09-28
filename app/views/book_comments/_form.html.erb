@@ -1,0 +1,4 @@
+<%= form_with(model: [book, comment],data:{remote: true}) do |f|%>
+      <%= f.text_area :body %>
+      <%= f.submit "comment", class: "btn btn-primary", id: "comment__textarea" %>
+    <% end %>
