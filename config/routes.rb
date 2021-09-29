@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'chats/:id', to: 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 	devise_for :users, controllers: {
     sessions: "public/sessions",
     registrations: "public/registrations"

@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :book_comments
   validates :name, presence: true, length: {maximum: 10, minimum: 2}
   validates :introduction, length: {maximum: 50}
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
   
   
   # フォロー取得
