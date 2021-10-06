@@ -5,6 +5,7 @@ class CreateUserRooms < ActiveRecord::Migration[5.2]
       t.integer :room_id
 
       t.timestamps
+      
     end
   end
 end
