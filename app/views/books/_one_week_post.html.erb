@@ -1,0 +1,41 @@
+<h2>7日分の投稿数</h2>
+<table class= "table table-bordered">
+ <tr>
+  <th>6日前</th>
+  <th>5日前</th>
+  <th>4日前</th>
+  <th>3日前</th>
+  <th>2日前</th>
+  <th>1日前</th>
+
+  <th>今日</th>
+
+ </tr>
+ <tr>
+  <td><%=  books.where(created_at: 6.day.ago.all_day).count %></td>
+  <td><%=  books.where(created_at: 5.day.ago.all_day).count %></td>
+  <td><%=  books.where(created_at: 4.day.ago.all_day).count %></td>
+  <td><%=  books.where(created_at: 3.day.ago.all_day).count %></td>
+  <td><%=  books.where(created_at: 2.day.ago.all_day).count %></td>
+  <td><%=  books.where(created_at: 1.day.ago.all_day).count  %></td>
+  <td><%=  books.where(created_at: Time.zone.now.all_day).count %></td>
+ </tr>
+</table>
+<canvas id  ="myChart" width = "300" height= "100"></canvas>
+<script>
+ var ctx = document.getElementById("myChart").getContext('2d');
+ var myChart = new Chart(ctx,{
+     type: 'line',
+     data: {
+         labels: ['6日前','5日前' ,'4日前','3日前','2日前','1日前','今日'],
+         datasets: [{
+             label: "投稿数",
+             data: [<%= books.where(created_at: 6.day.ago.all_day).count %>, <%=  books.where(created_at: 5.day.ago.all_day).count %>,<%=  books.where(created_at: 4.day.ago.all_day).count %>, <%=  books.where(created_at: 3.day.ago.all_day).count %>, <%=  books.where(created_at: 2.day.ago.all_day).count %>, <%=  books.where(created_at: 1.day.ago.all_day).count %>, <%=  books.where(created_at: Time.zone.now.all_day).count %>],
+             backgroundColor: 'rgba(0,24,256,1.0)',
+             borderColor: 'rgba(0,100,256,1.0)',
+             fill: false
+
+         }]
+     },
+ });
+</script>
