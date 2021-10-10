@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   before_action :authenticate_user!,only: [:create,:edit,:update,:destroy,:index]
 
   def index
-    @books = Book.all
+    @book_all = Book.all
+    @books = Book.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size}
     @book = Book.new
   end
 
