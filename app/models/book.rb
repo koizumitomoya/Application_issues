@@ -5,6 +5,7 @@ class Book < ApplicationRecord
 
   has_many :favorites
   has_many :book_comments
+  has_many :favorite_users, through: :favorites, source: :user
 
   scope :created_today, -> { where(created_at: Time.zone.now.all_day) } #今日
   scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) } #前日
