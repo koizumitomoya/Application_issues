@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'follow/:id' => 'relationships#follow',as: 'follow' #フォローする
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' #アンフォローする
   resources :users,only: [:show,:edit,:update,:index] do
+    get "search", to: "users#search"
     member do
       get 'followers'
       get 'followings'

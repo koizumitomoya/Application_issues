@@ -13,7 +13,17 @@
     <h2>Books</h2>
 
     <%= render 'books/index',books: @books %>
-    
+    <%= form_with url: user_search_path(@user), local: false, method: :get  do |f| %>
+     <%= f.date_field :created_at %>
+     <%= f.submit '検索', class: 'btn btn-primary' %>
+    <% end %>
+
+    <div id = "search_result">
+     <% if @search_book.present? %>
+      <%= render 'search', search_book: @search_book %>
+     <% end %>
+    </div>  
+
     <%= render 'post_number', user: @user %>
   </div>
 </div>
