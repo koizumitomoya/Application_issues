@@ -36,6 +36,8 @@ def following?(user)
   following_user.include?(user)
 end   
 
+
+
 include JpPrefecture
 jp_prefecture :prefecture_code
 
