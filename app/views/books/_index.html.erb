@@ -22,6 +22,8 @@
           <%= render partial: 'favorites/book', locals: {book: book, user: current_user}%>
         </div></td>
         <td>コメント数: <%= book.book_comments.count %></td>
+        <td>閲覧数：　<%= book.impressionist_count(:filter => :session_hash) %>
+      
       </tr>
     <% end %>
   </tbody>

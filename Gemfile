@@ -69,3 +69,4 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'jp_prefecture'
 gem "dotenv-rails"
+gem 'impressionist', '~>1.6.1'
