@@ -11,7 +11,8 @@ class User < ApplicationRecord
   validates :introduction, length: {maximum: 50}
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
-  
+  has_many :group_users
+  has_many :groups,  through: :group_users
   
   # フォロー取得
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
