@@ -22,6 +22,25 @@
           <%= render partial: 'favorites/book', locals: {book: book, user: current_user}%>
         </div></td>
         <td>コメント数: <%= book.book_comments.count %></td>
+        <div class = "relative-post-evaluation">
+    <td>
+     <span>評価:</span>
+     <span id="star-rate-<%= book.id %>"></span>
+  <script>
+    $('#star-rate-<%= book.id %>').raty({
+      size: 36,
+      starOff: "<%= asset_path('star-off.png') %>",
+      starOn: "<%= asset_path('star-on.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      half: true,  
+      readOnly: true,   
+      score: <%= book.evaluation %>,  
+    });
+  </script>
+  <%= book.evaluation %>
+
+    </td>
+    </div>
         <td>閲覧数：　<%= book.impressionist_count(:filter => :session_hash) %>
       
       </tr>

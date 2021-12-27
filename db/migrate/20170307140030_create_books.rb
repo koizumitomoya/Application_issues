@@ -3,6 +3,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
     create_table :books do |t|
       t.string :title
       t.text :body
+      t.float :evaluation, null:false
 
       t.timestamps
     end

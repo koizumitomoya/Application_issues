@@ -17,3 +17,6 @@
 //= require bootstrap-sprockets
 //= require chartkick
 //= require Chart.bundle
+//= require jquery.raty.js
+
+
