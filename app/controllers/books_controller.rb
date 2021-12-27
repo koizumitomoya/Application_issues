@@ -47,7 +47,7 @@ class BooksController < ApplicationController
 
   private
     def book_params
-      params.require(:book).permit(:title, :body)
+      params.require(:book).permit(:title, :body, :evaluation)
     end
 
     def screen_user(book)
